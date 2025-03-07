@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Valid Pass{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="alert alert-success text-center">
+        <h2>Pass Validated Successfully!</h2>
+        <p>The pass for <strong>{{ entry_pass.name }}</strong> is successfully validated for the event <strong>{{ entry_pass.event_name }}</strong>.</p>
+    </div>
+</div>
+{% endblock %}

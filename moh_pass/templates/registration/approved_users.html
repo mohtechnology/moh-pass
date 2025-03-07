@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Registered Users{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-white">
+  <h2 class="text-center mb-4">Registered Users</h2>
+
+  <div style="max-height: 400px; overflow-y: auto; border: 2px solid white;">
+    <table class="table table-bordered table-hover" style="background: linear-gradient(to right, #4facfe, #00f2fe); color: white;">
+        <thead style="background: rgb(30, 255, 0); position: sticky; top: 0; z-index: 1;">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Enrollment Number</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Valid</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr style="background: rgba(255, 255, 255, 0.1);">
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ user.enrollment }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                {% if user.is_used %}
+                <td class='text-center text-danger'>❌</td>
+                {% else %}
+                <td class='text-center text-success'>✅</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

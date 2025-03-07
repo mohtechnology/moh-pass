@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Pass Detail{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="card text-center shadow-lg bg-gradient p-4" style="background: linear-gradient(to right, #4facfe, #00f2fe); color: white;">
+        <h2 class="mb-3">Your Entry Pass</h2>
+        <p><strong>Name:</strong> {{ entry_pass.name }}</p>
+        <p><strong>Status:</strong> {{ entry_pass.is_used|yesno:"Used,Unused" }}</p>
+        <div class="my-3">
+            <img src="{{ entry_pass.qr_code.url }}" alt="QR Code" class="img-fluid rounded">
+        </div>
+        <p><strong>Unique ID:</strong> {{ entry_pass.unique_id }}</p>
+    </div>
+</div>
+{% endblock %}
